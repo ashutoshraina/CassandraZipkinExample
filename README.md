@@ -67,8 +67,8 @@ handler_key=cassandra.custom_query_handler_class
 handler_value=org.apache.cassandra.cql3.CustomPayloadMirroringQueryHandler
 
 cat << EOF >> $CASSANDRA_HOME/conf/jvm.options
--D=$tracing_key=$tracing_value
--D=$handler_key=$handler_value
+-D$tracing_key=$tracing_value
+-D$handler_key=$handler_value
 EOF
 ```
 
