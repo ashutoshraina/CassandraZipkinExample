@@ -1,14 +1,20 @@
-DROP KEYSPACE IF EXISTS cassandra_zipkin_example;
+DROP KEYSPACE IF EXISTS example;
 
-CREATE KEYSPACE cassandra_zipkin_example
+CREATE KEYSPACE example
   WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
 
-USE cassandra_zipkin_example;
+USE example;
 
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
+    id int,
     email TEXT,
     name TEXT,
-    PRIMARY KEY (email)
+    likes TEXT,
+    petname TEXT,
+    PRIMARY KEY (id, name)
 );
+
+CREATE INDEX user_likes
+   ON example.users (likes);
